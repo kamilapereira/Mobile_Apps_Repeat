@@ -68,16 +68,16 @@ class RegisterActivity : AppCompatActivity() {
             .put("username", username)
             .put("password", password)
             .put("name", JSONObject()
-                .put("firstname", "John")
-                .put("lastname", "Doe"))
+                .put("firstname", "Kamila")
+                .put("lastname", "Pereira"))
             .put("address", JSONObject()
-                .put("city", "kilcoole")
-                .put("street", "7835 new road")
+                .put("city", "Dublin")
+                .put("street", "O'Connell Street")
                 .put("number", 3)
-                .put("zipcode", "12926-3874")
+                .put("zipcode", "D04 89GR")
                 .put("geolocation", JSONObject()
-                    .put("lat", "-37.3159")
-                    .put("long", "81.1496")))
+                    .put("lat", "53.3498")
+                    .put("long", "6.2603")))
             .put("phone", "1-570-236-7033")
 
         val body = json.toString()
@@ -99,11 +99,11 @@ class RegisterActivity : AppCompatActivity() {
                     response.body?.string()?.let { responseBody ->
                         println(responseBody)
                         runOnUiThread {
-                            showToast("User registered successfully")
                             startActivity(Intent(this@RegisterActivity, HomeActivity::class.java).apply {
                                 flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                             })
                             finish()
+                            showToast("User registered successfully")
                         }
                     }
                 } else {
